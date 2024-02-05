@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        body {
+            background-color: #000000;
+            background-position: center;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        h1 {
+            color: red;
+            font-size: 3.29rem;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .ajit{
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .watch{
+            background-color: #090909;
+            color: white;
+            font-size: 100px;
+            width: 570px;
+            margin: 0 10px;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            gap: 3rem;
+        }
+
+        .btn button {
+            min-width: 120px;
+            padding: 5px;
+            margin-bottom: 50px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+    <h1>StopWatch</h1>
+    
+    <div class="btn">
+        <button onclick="stop()">Stop</button>
+        <button onclick="start()">Start</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <div class="ajit">
+
+        <div>
+            <h1 class="watch" id="displayTime" >00 : 00 : 00</h1>
+        </div>
+        
+
+    
+</div>
+
+
+
+
+
+
+    <script>
+        let [seconds, minutes, hours] = [0, 0, 0];
+        let displayTime = document.getElementById("displayTime");
+        let timer = null;
+        function stopwatch() {
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes == 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+
+            let hrs = hours < 10 ? "0" + hours : hours;
+            let min = minutes < 10 ? "0" + minutes : minutes;
+            let sec = seconds < 10 ? "0" + seconds : seconds;
+            displayTime.innerHTML = hrs + " : " + min + " : " + sec;
+        }
+        function start() {
+            if (timer !== null) {
+                clearInterval(timer);
+            }
+            timer = setInterval(stopwatch, 1000);
+        }
+        function stop() {
+            clearInterval(timer);
+        }
+        function reset() {
+            clearInterval(timer);
+            [seconds, minutes, hours] = [0, 0, 0];
+            displayTime.innerHTML = "00 : 00 : 00";
+        }
+    </script>
+</body>
+
+</html>

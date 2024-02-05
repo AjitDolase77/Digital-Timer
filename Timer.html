@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <style>
+    body {
+      background-color: #000000;
+      text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    h1{
+      color: red;
+      font-size: 3.5rem;
+    }
+    table{
+      margin: auto;
+    }
+    th{
+      color: white;
+      font-size: 1.3rem;
+    }
+    input{
+      font-size: 0.9rem;
+      padding:5px;
+      border-radius: 5px;
+      min-width: 100px;
+      font-weight: 600;
+    }
+    button{
+      min-width: 120px;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .count{
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+    .heading{
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .time{
+      background-color: #090909;
+      font-size: 100px;
+      width: 150px;
+      margin: 0 10px;
+      font-weight: 600;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+  </style>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <h1>Timer</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Enter Date</th>
+        <th>Enter Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td><input type="Date" id="date"></td>
+      <td><input type="Time" id="time"></td>
+    </tbody>
+  </table>
+  <br>
+  <button id="calculate">Calculate</button>
+  <button id="Stop">Stop</button>
+  <button id="Reset">Reset</button>
+  <br>
+  <br>
+
+  <div class="count">
+    <div>
+      <p class="heading">Day</p><br>
+      <div class="time" id="countdown-days">00</div>
+    </div>
+    <div>
+      <p class="heading">Hours</p><br>
+      <div class="time" id="countdown-hours">00</div>
+    </div>
+    <div>
+      <p class="heading">Minutes</p><br>
+      <div class="time" id="countdown-minutes">00</div>
+    </div>
+    <div>
+      <p class="heading">Seconds</p><br>
+      <div class="time" id="countdown-seconds">00</div>
+    </div>
+  </div>
+</body>
+
+</html>
